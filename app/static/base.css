@@ -1,0 +1,107 @@
+:root {
+    --primary-color: seagreen;
+    --secondary-color: indianred;
+    --text-primary-color: black;
+    --text-secondary-color: white;
+    --background-primary-color: #FFF4E0;
+    --background-secondary-color: #FFF2CC;
+    --goback-color: #EB6440;
+    --success-color: green;
+    --error-color: red;
+    --black-color: black;
+    --white-color: white;
+    --logo-primary-color: #3A8891;
+    --logo-secondary-color: #EB1D36;
+    --button-primary-color: #4E6C50;
+    --button-secondary-color: #7a967c;
+    --navbar-primary-color: transparent;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/*-------------------||buttons||-----------------------*/
+.button {
+    all: unset;
+    user-select: none;
+    cursor: pointer;
+    background-color: var(--button-primary-color);
+    color: var(--white-color);
+    font-size: 1rem;
+    text-align: center;
+    padding: 3px 9px;
+    border-radius: 3px;
+}
+
+/*-------------------||Nav-bar||-----------------------*/
+.navbar {
+    /*position: fixed;*/
+    top: 0;
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+    width: 100%;
+    background-color: var(--navbar-primary-color);
+    color: var(--black-color);
+}
+
+
+.navbar > .logo__primary-color {
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--logo-primary-color);
+}
+
+
+.navbar > .logo__secondary-color {
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--logo-secondary-color);
+}
+
+
+.navbar > ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+}
+
+
+.navbar > ul > li {
+    margin-right: 50px;
+}
+
+
+.navbar > ul > li > a:not(.button) {
+    color: var(--black-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom ease-in-out 200ms;
+}
+
+/*-------------------||Footer-bar||-----------------------*/
+.footer {
+    /*position: fixed;*/
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    width: 100%;
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+
+.footer > .data-rules {
+    font-size: 10px;
+    color: var(--white-color);
+}

@@ -1,0 +1,47 @@
+{% extends "website_box_idea/client/extends/sign_base.html" %}
+{% load static %}
+{% block title %}
+    Idea Box - Inscription
+{% endblock %}
+
+
+{% block content %}
+    <h1>Inscription</h1>
+    <form class="form" action="/register/" method="post">
+        {% csrf_token %}
+        <label class="label">
+            Nom d'utilisateur
+            <input type="text" class="input" name="username" placeholder="Nom d'utilisateur" required minlength="3">
+        </label>
+
+        <label class="label">
+            Prénom
+            <input type="text" class="input" name="fname" placeholder="Votre nom" required>
+        </label>
+
+        <label class="label">
+            Nom
+            <input type="text" class="input" name="lname" placeholder="Votre prénom" required>
+        </label>
+
+        <label class="label">
+            E-mail
+            <input type="email" class="input" name="email" placeholder="ex@exemple.com" required>
+        </label>
+
+        <label class="label">
+            Mot de passe
+            <input type="password" class="input" name="password" placeholder="Mot de passe" required minlength="3">
+        </label>
+
+        <label class="label">
+            Confirmation mot de passe
+            <input type="password" class="input" name="confirm-password" placeholder="Confirmation mot de passe" required minlength="3">
+        </label>
+        <i>
+        Le mot de passe doit contenir : au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un symbole.
+        </i>
+
+        <button class="button submit-btn">Connexion</button>
+    </form>
+{% endblock %}
