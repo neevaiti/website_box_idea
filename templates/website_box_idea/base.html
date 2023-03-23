@@ -24,7 +24,7 @@
     {% endblock %}
 
 
-
+    <script src="{%load static ''%}"></script>
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script>
       {% for message in messages %}
@@ -34,8 +34,8 @@
               duration: 3000,
               close: true,
               gravity: "top",
-              position: "center",
-              backgroundColor: "var(--valid-color)",
+              position: "right",
+              backgroundColor: "var(--success-color)",
             }).showToast();
         {% elif message.tags == 'error' %}
             Toastify({
@@ -43,7 +43,7 @@
               duration: 3000,
               close: true,
               gravity: "top",
-              position: "center",
+              position: "right",
               backgroundColor: "var(--error-color)",
             }).showToast();
         {% endif %}

@@ -91,4 +91,5 @@ def dashboard(request):
     """
     Function return to the dashboard view
     """
+    messages.success(request, f"Bienvenue {request.user.first_name} sur votre tableau de bord.")
     return render(request, "website_box_idea/back_office/dashboard.html", {"fname": request.user.first_name})
