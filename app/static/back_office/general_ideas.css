@@ -1,0 +1,57 @@
+/*-------------------| LIKES BUTTON |-----------------------*/
+
+.like-btn {
+    background-color: #fff;
+    border: 1px solid #337ab7;
+    border-radius: 5px;
+    color: #337ab7;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.btn-outline-primary {
+    color: #337ab7;
+    background-color: transparent;
+    background-image: none;
+    border-color: #337ab7;
+}
+
+
+
+/*-------------------| DISLIKES BUTTON |-----------------------*/
+
+.dislike-btn {
+    background-color: #fff;
+    border: 1px solid #d9534f;
+    border-radius: 5px;
+    color: #d9534f;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    transition: all 0.3s ease 0s;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-outline-danger {
+    color: #d9534f;
+    background-color: transparent;
+    background-image: none;
+    border-color: #d9534f;
+}

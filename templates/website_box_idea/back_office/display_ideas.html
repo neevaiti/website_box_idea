@@ -1,0 +1,54 @@
+{% extends 'website_box_idea/base.html' %}
+{% load static %}
+
+{% block extra-head %}<link rel="stylesheet" href="{% static 'client/back_office/general_ideas.css' %}">{% endblock %}
+
+{% block body %}
+{% include "website_box_idea/back_office/includes/navbar.html" %}
+  <h1>Boîte à idées</h1>
+
+  <div class="ideas">
+    {% for idea in ideas %}
+      <div class="idea">
+        <h2>{{ idea.title }}</h2>
+        <p>{{ idea.description }}</p>
+        <p>Par {{ idea.author.username }}, le {{ idea.created_at|date }}</p>
+
+        <div class="likes">
+          <p>{{ idea.likes_count }} likes</p>
+          <button class="like-btn" data-type="like" data-id="{{ idea.id }}">Like</button>
+          <p>{{ idea.dislikes_count }} dislikes</p>
+          <button class="dislike-btn" data-type="dislike" data-id="{{ idea.id }}">Dislike</button>
+        </div>
+
+        <ul class="comments">
+          {% for comment in idea.comments.all %}
+            <li>
+              <p>{{ comment.text }}</p>
+              <p>Par {{ comment.author.username }}, le {{ comment.created_at|date }}</p>
+              <div class="likes">
+                <p>{{ comment.likes_count }} likes</p>
+                <button class="like-btn" data-type="like" data-id="{{ comment.id }}">Like</button>
+                <p>{{ comment.dislikes_count }} dislikes</p>
+                <button class="dislike-btn" data-type="dislike" data-id="{{ comment.id }}">Dislike</button>
+              </div>
+            </li>
+          {% empty %}
+            <p>Pas encore de commentaires.</p>
+          {% endfor %}
+        </ul>
+        <form method="post" action="{% url 'new_comment' idea.id %}">
+          {% csrf_token %}
+          <label for="comment-text">Commentaire:</label>
+          <textarea id="comment-text" name="text" required></textarea>
+          <button type="submit">Ajouter</button>
+        </form>
+      </div>
+    {% empty %}
+      <p>Pas encore d'idées.</p>
+    {% endfor %}
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{% static 'client/extends/idea_actions.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Boîte à idées populaires</h1>
+
+  <div class="ideas">
+    {% for idea in popular_ideas %}
+      <div class="idea">
+        <h2>{{ idea.title }}</h2>
+        <p>{{ idea.description }}</p>
+        <p>Par {{ idea.author.username }}, le {{ idea.created_at|date }}</p>
+        <div class="idea-likes">
+          <button class="like-button" data-idea-id="{{ idea.id }}" data-action="like">J'aime</button>
+          <span class="likes-count">{{ idea.likes.count }}</span>
+          <button class="like-button" data-idea-id="{{ idea.id }}" data-action="dislike">Je n'aime pas</button>
+          <span class="dislikes-count">{{ idea.dislikes.count }}</span>
+        </div>
+        <div class="idea-comments">
+          <h3>Commentaires</h3>
+          {% for comment in idea.comments.all %}
+            <div class="comment">
+              <p>{{ comment.content }}</p>
+              <p>Par {{ comment.author.username }}, le {{ comment.created_at|date }}</p>
+              <button class="delete-comment-button" data-comment-id="{{ comment.id }}">Supprimer</button>
+            </div>
+          {% empty %}
+            <p>Aucun commentaire pour le moment.</p>
+          {% endfor %}
+          <form class="comment-form" method="POST" data-idea-id="{{ idea.id }}">
+            {% csrf_token %}
+            <label for="content">Commentaire :</label>
+            <textarea id="content" name="content" required></textarea>
+            <button type="submit">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    {% empty %}
+      <p>Aucune idée pour le moment.</p>
+    {% endfor %}
+  </div>
+
+  <script src="{% static 'js/idea_actions.js' %}"></script>
+{% endblock %}
