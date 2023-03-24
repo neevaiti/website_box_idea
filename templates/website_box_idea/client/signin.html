@@ -1,0 +1,27 @@
+{% extends "website_box_idea/client/extends/sign_base.html" %}
+{% load static %}
+{% block title %}
+    Idea Box - Connexion
+{% endblock %}
+
+{% block content %}
+
+    <h1>Connexion</h1>
+    <p>Connectez-vous à votre compte Idea Box</p>
+    
+    <form class="form" action="" method="post">
+        {% csrf_token %}
+        <img src="https://img.icons8.com/external-nawicon-flat-nawicon/64/null/external-light-bulb-energy-nawicon-flat-nawicon.png"/>
+        <label class="label">
+            Nom d'utilisateur
+            <input class="input" type="text" name="username"
+                   placeholder="Entrez votre nom d'utilisateur" required minlength="3">
+        </label>
+        <label class="label">
+            Mot de passe
+            <input class="input" type="password" name="password"
+                   placeholder="Saisissez votre mot de passe" required minlength="3">
+        </label>
+        <button class="button submit-btn sign-in-button" onclick="shakeButton()">Connexion</button>
+    </form>
+{% endblock %}

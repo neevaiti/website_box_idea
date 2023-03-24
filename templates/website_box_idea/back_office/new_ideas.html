@@ -1,0 +1,15 @@
+{% extends 'website_box_idea/base.html' %}
+{% load static %}
+
+{% block body %}
+{% include "website_box_idea/back_office/includes/navbar.html" %}
+
+    <div class="container">
+        <h1>Poster votre idée !</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button id="submit" class="btn btn-primary">Poster</button> 
+        </form>
+  </div>
+{% endblock %}

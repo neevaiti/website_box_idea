@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <h1><a href="/dashboard/"><span class="logo__primary-color">I</span>dea <span class="logo__secondary-color">B</span>ox</a></h1>
+    <ul>
+        {% if user.is_staff %}
+            <li><a href="/admin/">Administration</a></li>
+            
+        {% else %}
+            <li><a href="/nouvelle-idee/">Top idées</a></li>
+            <li><a href="//">Mes idées</a></li>
+            <li><a href="/profile/"></a></li>
+        {% endif %}
+        <li><a href="/sign-out">Déconnexion</a></li>
+    </ul>
+</nav>

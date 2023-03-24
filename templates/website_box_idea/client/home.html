@@ -1,0 +1,32 @@
+{% extends "website_box_idea/base.html" %}
+{% load static %}
+{% block title %}
+    Idea Box - Accueil
+{% endblock %}
+
+{% block extra-head %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="{% static 'client/home.css' %}">
+{% endblock %}
+
+{% block body %}
+
+    {% include "website_box_idea/client/includes/navbar.html" %}
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="content">
+                        <h1>Partagez ses idées avec simplicité !</h1>
+                        <p>Partagez toutes vos idées avec vos amis, vos collègues.</p>
+                        <a class="button" href="/sign-in">Connexion</a>
+                        <a class="button" href="/register">Inscripion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% include "website_box_idea/client/includes/footer.html" %}
+{% endblock %}
