@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <h1><a href="/">Coach Xu Wenwu</a></h1>
+    <ul>
+        {% if user.is_staff %}
+            <li><a href="/admin/">Administration</a></li>
+            
+        {% else %}
+            <li><a href="/appointment/">Top idées</a></li>
+            <li><a href="/my-appointments/">Mes idées</a></li>
+            <li><a href="/profile/"></a></li>
+        {% endif %}
+        <li><a href="/sign-out">Déconnexion</a></li>
+    </ul>
+</nav>
